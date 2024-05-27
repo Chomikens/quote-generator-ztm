@@ -3,11 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Styles -->
     <link rel="stylesheet" href="./src/styles/style.css">
+    <!-- Font Awsome Icons -->
+    <script src="https://kit.fontawesome.com/cd3b06e286.js" crossorigin="anonymous"></script>
+    <!-- Javascipt logic -->
     <script src="./src/script.js" defer></script>
     <title>Quote Geneator</title>
 
 </head>
 <body>
+    <div class="quote-container" id="quote-container">
+    <!-- Quote -->
+        <div class="quote-text">
+            <i class="fas fa-quote-left"></i>
+            <span id="quote">Health is the greatest gift, contentment the greatest wealth, faithfulness the best relationship.</span>
+        </div>
+        <!-- Author -->
+        <div class="quote-author">
+            <span id="author">Buddha</span>
+        </div>
+
+        <div class="quote-buttons">
+            <button class="quote-button twitter-button" id="twitter" title="Tweet This!">
+              <i class="fab fa-twitter"></i>
+            </button>
+            <button class="quote-button" id="new-quote" title="Get new quote">Get new quote</button>
+        </div>
+    </div>
 </body>
 </html>
