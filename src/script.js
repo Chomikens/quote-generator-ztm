@@ -29,7 +29,7 @@ const quoteContainer = document.querySelector('#quote-container');
 /**
  * Hides the loader and displays the quote container.
  */
-function hideLoader() {
+function showLoader() {
     quoteContainer.style.display = "none";
     loader.classList.add('loader-shown');
 }
@@ -37,7 +37,7 @@ function hideLoader() {
 /**
  * Shows the loader and hides the quote container.
  */
-function showLoader() {
+function hideLoader() {
     quoteContainer.style.display = "block";
     loader.classList.remove('loader-shown');
 }
@@ -61,7 +61,7 @@ function getRandomNumber(max, min = 0) {
 async function getQuoteFromAPI() {
     const url = "https://jacintodesign.github.io/quotes-api/data/quotes.json";
     try {
-        hideLoader();
+        showLoader();
         const response = await fetch(url);
         if (!response.ok) throw new Error("Unable to fetch data");
         return await response.json();
@@ -121,7 +121,7 @@ async function renderText() {
             quoteTextContainer.classList.remove('quote-text-long');
         }
 
-        showLoader();
+        hideLoader();
         quoteTextContainer.textContent = quote.text;
         quoteAuthorContainer.textContent = quote.author;
     } catch (error) {
@@ -139,6 +139,7 @@ async function handleTweet() {
         const quote = await getSingleQuote();
         const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(quote.text)} - ${encodeURIComponent(quote.author)}`;
         window.open(twitterUrl, '_blank');
+        hideLoader()
     } catch (error) {
         console.log("Error tweeting the quote:", error.message);
     }
